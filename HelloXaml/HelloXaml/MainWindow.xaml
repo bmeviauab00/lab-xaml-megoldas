@@ -8,4 +8,37 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Grid>
+        <!--<Grid.Background>
+            <LinearGradientBrush>
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="Black" Offset="0" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid Width="300" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" RowSpacing="5" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbName" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Age" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbAge"/>
+
+            <Button Grid.Row="2" Grid.Column="1" Click="RecordButton_Click" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse Width="10" Height="10" Fill="Red" />
+                    <TextBlock x:Name="recordTextBlock" Text="Record" Margin="10,0,0,0" />
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
 </Window>

@@ -8,4 +8,9 @@ public sealed partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void RecordButton_Click(object sender, RoutedEventArgs e)
+    {
+        recordTextBlock.Text = "Recording...";
+    }
 }
