@@ -1,7 +1,36 @@
-﻿namespace HelloXaml.Models;
+﻿using System.ComponentModel;
 
-public class Person
+namespace HelloXaml.Models;
+
+public class Person : INotifyPropertyChanged
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    private string name;
+    public string Name
+    {
+        get { return name; }
+        set
+        {
+            if (name != value)
+            {
+                name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+            }
+        }
+    }
+
+    private int age;
+    public int Age
+    {
+        get { return age; }
+        set
+        {
+            if (age != value)
+            {
+                age = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Age)));
+            }
+        }
+    }
 }
