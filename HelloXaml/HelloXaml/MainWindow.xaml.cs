@@ -1,16 +1,23 @@
+using HelloXaml.Models;
+
 using Microsoft.UI.Xaml;
 
 namespace HelloXaml;
 
 public sealed partial class MainWindow : Window
 {
+    public Person NewPerson { get; set; }
+
     public MainWindow()
     {
         InitializeComponent();
-    }
 
-    private void RecordButton_Click(object sender, RoutedEventArgs e)
-    {
-        recordTextBlock.Text = "Recording...";
+        NewPerson = new Person()
+        {
+            Name = "Eric Cartman",
+            Age = 8
+        };
+
+        rootGrid.DataContext = NewPerson;
     }
 }

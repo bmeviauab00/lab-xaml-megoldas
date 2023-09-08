@@ -6,9 +6,11 @@
     xmlns:local="using:HelloXaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:model="using:HelloXaml.Models"
+    mc:Ignorable="d"
+    >
 
-    <Grid>
+    <Grid x:Name="rootGrid" d:DataContext="{d:DesignInstance Type=model:Person}">
         <!--<Grid.Background>
             <LinearGradientBrush>
                 <LinearGradientBrush.GradientStops>
@@ -25,18 +27,22 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbName" />
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Age" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="tbAge"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Name}" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Age" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Text="{Binding Age}"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="-"/>
+            <Button Grid.Row="1" Grid.Column="3" Content="+"/>
 
-            <Button Grid.Row="2" Grid.Column="1" Click="RecordButton_Click" HorizontalAlignment="Right">
+            <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal">
-                    <Ellipse Width="10" Height="10" Fill="Red" />
-                    <TextBlock x:Name="recordTextBlock" Text="Record" Margin="10,0,0,0" />
+                    <SymbolIcon Symbol="Add"/>
+                    <TextBlock Text="Add" Margin="5,0,0,0" />
                 </StackPanel>
             </Button>
         </Grid>
