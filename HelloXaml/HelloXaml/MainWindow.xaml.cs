@@ -53,7 +53,7 @@ public sealed partial class MainWindow : Window
         NewPerson.Age++;
     }
 
-    private string PersonFormat(string name, int age)
+    private static string FormatPerson(string name, int age)
     {
         return $"{name} ({age})";
     }

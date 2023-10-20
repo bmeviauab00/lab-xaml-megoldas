@@ -76,10 +76,7 @@
                       ItemsSource="{x:Bind People, Mode=OneWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Person">
-                        <TextBlock>
-                            <Run Text="{x:Bind Name}" />
-                            (<Run Text="{x:Bind Age}" />
-                            )</TextBlock>
+                        <TextBlock Text="{x:Bind local:MainWindow.FormatPerson(Name, Age)}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
