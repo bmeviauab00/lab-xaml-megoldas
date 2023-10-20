@@ -2,7 +2,6 @@ using HelloXaml.Models;
 
 using Microsoft.UI.Xaml;
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace HelloXaml;
@@ -34,6 +33,14 @@ public sealed partial class MainWindow : Window
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
         People.Add(NewPerson);
+        NewPerson = new Person()
+        {
+            Name = string.Empty,
+            Age = 0
+        };
+
+        // alternatívaként, a NewPerson elsüthetne egy PropertyChanged eseményt
+        Bindings.Update();
     }
 
     private void DecreaseButton_Click(object sender, RoutedEventArgs e)
@@ -44,5 +51,10 @@ public sealed partial class MainWindow : Window
     private void IncreaseButton_Click(object sender, RoutedEventArgs e)
     {
         NewPerson.Age++;
+    }
+
+    private string PersonFormat(string name, int age)
+    {
+        return $"{name} ({age})";
     }
 }
