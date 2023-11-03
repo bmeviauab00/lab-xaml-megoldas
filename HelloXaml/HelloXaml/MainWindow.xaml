@@ -12,7 +12,6 @@
           Width="300"
           Margin="20"
           HorizontalAlignment="Center"
-          VerticalAlignment="Top"
           d:DataContext="{d:DesignInstance Type=model:Person}"
           ColumnSpacing="10"
           RowSpacing="5">
@@ -81,6 +80,8 @@
 
         <ListView Grid.Row="3"
                   Grid.ColumnSpan="2"
+                  BorderBrush="DarkGray"
+                  BorderThickness="1"
                   ItemsSource="{x:Bind People, Mode=OneWay}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Person">
