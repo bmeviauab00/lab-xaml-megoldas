@@ -26,21 +26,18 @@ public sealed partial class MainWindow : Window
           new Person() { Name = "Peter Griffin", Age = 40 },
           new Person() { Name = "Homer Simpson", Age = 42 },
         };
-
-        rootGrid.DataContext = this;
     }
 
     private void AddButton_Click(object sender, RoutedEventArgs e)
     {
-        People.Add(NewPerson);
-        NewPerson = new Person()
-        {
-            Name = string.Empty,
-            Age = 0
-        };
+        People.Add(new Person()
+        { 
+            Name = NewPerson.Name,
+            Age = NewPerson.Age,
+        });
 
-        // alternatívaként, a NewPerson elsüthetne egy PropertyChanged eseményt
-        Bindings.Update();
+        NewPerson.Name = string.Empty;
+        NewPerson.Age = 0;
     }
 
     private void DecreaseButton_Click(object sender, RoutedEventArgs e)
