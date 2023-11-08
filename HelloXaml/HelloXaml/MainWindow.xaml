@@ -85,10 +85,10 @@
                   ItemsSource="{x:Bind People}">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Person">
-                    <StackPanel Orientation="Horizontal">
+                    <Grid>
                         <TextBlock Text="{x:Bind Name}" />
-                        <TextBlock Text="{x:Bind Age}" />
-                    </StackPanel>
+                        <TextBlock HorizontalAlignment="Right" Text="{x:Bind Age}" />
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

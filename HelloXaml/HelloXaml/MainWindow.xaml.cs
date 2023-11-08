@@ -23,8 +23,8 @@ public sealed partial class MainWindow : Window
 
         People = new ObservableCollection<Person>()
         {
-          new Person() { Name = "Peter Griffin", Age = 40 },
-          new Person() { Name = "Homer Simpson", Age = 42 },
+            new Person() { Name = "Peter Griffin", Age = 40 },
+            new Person() { Name = "Homer Simpson", Age = 42 },
         };
     }
 
@@ -48,10 +48,5 @@ public sealed partial class MainWindow : Window
     private void IncreaseButton_Click(object sender, RoutedEventArgs e)
     {
         NewPerson.Age++;
-    }
-
-    private static string FormatPerson(string name, int age)
-    {
-        return $"{name} ({age})";
     }
 }
